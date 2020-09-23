@@ -1,11 +1,41 @@
 #C++ sstream 中处理字符串
-C++引入ostringstream、istringstream、stringstream这三个类，要使用他们创建对象就必须包含<sstream>这个头文件。
 
-istringstream的构造函数原形如下：
-istringstream::istringstream(string str);
-它的作用是从string对象str中读取字符，stringstream对象可以绑定一行字符串，然后以空格为分隔符把该行分隔开来。
+
+
+**答题的代码如下**
+```shell
+#include<string>
+#include<iostream>
+#include<sstream>
+using namespace std;
+int maxScore(string scores){
+	int max = -1;
+	
+	int num;
+	stringstream ss(scores);
+	
+	while(ss >> num){
+		if (num>max) {max = num;}
+	}
+	return max;
+	
+}
+int main()
+{
+	string test("12 14 15 36 74");
+	int maxScore(string scores);
+	cout << maxScore(test);
+}
+```
+
+`C++`引入`ostringstream`、`istringstream`、`stringstream`这三个类，要使用他们创建对象就必须包含`<sstream>`这个头文件。
+
+`istringstream`的构造函数原形如下：
+`istringstream::istringstream(string str)`;
+它的作用是从`string`对象`str`中读取字符，`stringstream`对象可以绑定一行字符串，然后以空格为分隔符把该行分隔开来。
 
 下面我们分离以空格为界限，分割一个字符串。
+```shell
 #include<iostream>
 #include<sstream>
 #include<string>
@@ -21,17 +51,19 @@ int main()
     } while (is);
     return 0;
 }
+```
 程序输出
 
-I
+`I`
 
-am 
+`am `
 
-coding
+`coding`
 
 ...
 
 另外用vector也可以实现
+```shell
 #include <vector>
 #include<iostream>
 #include <string>
@@ -51,3 +83,4 @@ int main()
     }
     return 0;
 }
+```
