@@ -4,8 +4,10 @@ c++字符创操作
 我们可以用 `= `进行赋值操作，`==` 进行比较，`+ `做串联。
 首先，为了在我们的程序中使用string类型，我们必须包含头文件 。如下：
 ```shell
-`#include` //注意这里不是`string.h` `string.h`是C字符串头文件
+#include //注意这里不是string.h string.h是C字符串头文件
 ```
+
+---
 #定义和构造初始化
 声明一个字符串变量很简单：
 ```shell
@@ -24,4 +26,37 @@ string s(num,c) //生成一个字符串，包含num个c字符
 string s(beg,end) //以区间beg;end(不包含end)内的字符作为字符串s的初值
 s.~string() //销毁所有字符，释放内存
 ```
-测试如下：
+**测试如下：**
+```shell
+# include <iostream>
+# include <string>
+using namespace std;
+int main()
+{
+    string str1 = "yesterday once more";
+    string str2 ("my heart go on");
+    string str3 (str1,6); // = day once more
+    string str4 (str1,6,3); // = day
+
+    char ch_music[] = {"Roly-Poly"};
+
+    string str5 = ch_music; // = Roly-Poly 
+    string str6 (ch_music); // = Roly-Poly
+    string str7 (ch_music,4); // = Roly
+    string str8 (10,'i'); // = iiiiiiii
+    string str9 (ch_music+5, ch_music+9); // = Poly
+
+    str9.~string();
+
+    //cout<<str9<<endl; // 测试输出
+
+    getchar();
+    return 0;
+}
+```
+
+---
+#字符串操作函数
+这里是C++字符串的重点
+##`=`,`assign()` //赋以新值
+`“=”`的用法不作详细说明,`assign`用法如下：
