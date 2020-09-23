@@ -8,7 +8,9 @@ c++字符创操作
 ```
 
 ---
+
 #定义和构造初始化
+
 声明一个字符串变量很简单：
 ```shell
 string Str;
@@ -56,7 +58,68 @@ int main()
 ```
 
 ---
+
 #字符串操作函数
+
 这里是C++字符串的重点
+
 ##`=`,`assign()` //赋以新值
+
 `“=”`的用法不作详细说明,`assign`用法如下：
+```shell
+# include <iostream>
+# include <string>
+using namespace std;
+int main()
+{
+    string str1 = "yesterday once more";
+    string str2 ("my heart go on");
+    string str3,str4;
+
+    str3.assign(str2,3,6);  // = heart
+    str4.assign(str2,3,string::npos); // = heart go on (从2开始到结尾赋给str4)
+    str4.assign("gaint"); // =gaint
+    str4.assign("nico",5); // = nico，超出长度会发生什么。。。
+    str4.assign(5,'x'); // = xxxxx
+    cout<<str4<<endl;
+
+    getchar();
+    return 0;
+}
+```
+
+##`swap()` //交换两个字符串的内容
+
+```shell
+# include <iostream>
+# include <string>
+using namespace std;
+int main()
+{
+    string str1 = "yesterday once more";
+    string str2 ("my heart go on");
+
+    str2.swap(str1);
+    cout<<str1<<endl; // = my heart go on
+    cout<<str2<<endl; // = yesterday once more
+
+    getchar();
+    return 0;
+}
+```
+
+##`+=,append(),push_back()` //在尾部添加字符
+
+增加字符（这里说的增加是在尾巴上），函数有 `+=、append()、push_back()`。举例如下：
+```shell
+s+=str;//加个字符串
+s+=”my name is jiayp”;//加个C字符串
+s+=’a’;//加个字符
+s.append(str);
+s.append(str,1,3);//不解释了同前面的函数参数assign的解释
+s.append(str,2,string::npos)//不解释了
+s.append(“my name is jiayp”);
+s.append(“nico”,5);
+s.append(5,’x’);
+s.push_back(‘a’);//这个函数只能增加单个字符
+```
