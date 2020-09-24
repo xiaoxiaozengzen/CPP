@@ -1,9 +1,6 @@
-#C++ sstream 中处理字符串
-
-
-
+# C++ sstream 中处理字符串
 **答题的代码如下**
-```shell
+```cpp
 #include<string>
 #include<iostream>
 #include<sstream>
@@ -35,7 +32,7 @@ int main()
 它的作用是从`string`对象`str`中读取字符，`stringstream`对象可以绑定一行字符串，然后以空格为分隔符把该行分隔开来。
 
 下面我们分离以空格为界限，分割一个字符串。
-```shell
+```cpp
 #include<iostream>
 #include<sstream>
 #include<string>
@@ -60,10 +57,10 @@ int main()
 
 `coding`
 
-...
+`...`
 
-另外用vector也可以实现
-```shell
+另外用`vector`也可以实现
+```cpp
 #include <vector>
 #include<iostream>
 #include <string>
