@@ -81,3 +81,10 @@ int main()
     return 0;
 }
 ```
+
+`stringstream`是一个类，需要实例化，然后通过重定向符`>>`或者`<<`来进行输出，输入输出符号另一侧需要你是对应的字符类别，比如：
+```cpp
+stringstream s(str);
+int a;
+a<<s;
+```
