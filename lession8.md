@@ -1,7 +1,7 @@
 
 此外，插一句，c++内存被分为5个区，分别是堆、栈、自由存储区、全局/静态存储区和常量存储区。
 
-这是我的代码
+这是参考的代码
 ===
 ```cpp
 #include <string>
@@ -40,6 +40,61 @@ char * encode(string s,int offset){//返回字符指针，指向一个字符串�
 	}
 	
 	return res;
+}
+```
+这是我的代码
+===
+```cpp
+// 在 `lession8/src` 文件夹中创建一个  `lession8_work.cpp` 文件，在里面定义一个原型为 `char * encode(string s,int offset)` 的函数，
+// 输入一行字符串s，将其中的字母偏移offset位，非字母不变，返回编码后的字符串。例如将字符偏移3位：a → d，x → a，y → b。
+#include <string>
+#include <cstring>
+#include <stdio.h>
+#include <ctype.h>
+#include <iostream>
+using namespace std;
+
+char * encode(string s,int offset)
+{
+	char *a= new char[s.size()];
+	int off;
+	for(int i=0;i<s.size();i++)
+	{
+		
+		if(s[i]<='z'&&s[i]>='a')
+		{
+			off=s[i]+(offset%26);
+			if(off>'z')
+				off=off-26;
+			else if(off<'a')
+				off=off+26;
+			else
+				off=off+0;
+		}
+		else if(s[i]<='Z'&&s[i]>='A')
+		{
+			off=s[i]+(offset%26);
+			if(off>'Z')
+				off=off-26;
+			else if(off<'A')
+				off=off+26;
+			else
+				off=off+0;
+		}
+		else
+			off=s[i];
+		
+		a[i]=(char)off;
+
+	}
+	return a;
+}
+int main()
+{
+	char * encode(string s,int offset);
+	string a="nihaoz123III";
+	int b=2;
+	cout<<encode(a,b);
 }
 ```
 	同时有一点需要说明，这里在devc++中编译需要添加const，否则会报错invalid conversion from const char*  to char *，这里可以再前面加上const或者在等号后面给强制转化成char*的类型。
