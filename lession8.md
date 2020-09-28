@@ -45,6 +45,7 @@ char * encode(string s,int offset){//返回字符指针，指向一个字符串�
 	同时有一点需要说明，这里在devc++中编译需要添加const，否则会报错invalid conversion from const char*  to char *，这里可以再前面加上const或者在等号后面给强制转化成char*的类型。
 
 	下面解释下该问题，const char*是不能直接赋值到char*的,这样编译都不能通过,理由:假如可以的话,那么通过char*就可以修改const char指向的内容了,这是不允许的。所以char*要另外开辟新的空间，即上面的形式。
+	字符数组元素不能改变，这是和字符串区别的点
 # warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
 在C++中，
 ```cpp
